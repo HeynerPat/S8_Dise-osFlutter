@@ -9,47 +9,59 @@ class BasicoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          _crearImagen(),
-          _crearTitulo(),
-          _crearAcciones(),
-          _crearTexto(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            _crearImagen(),
+            _crearTitulo(),
+            _crearAcciones(),
+            _crearTexto(),
+            _crearTexto(),
+            _crearTexto(),
+            _crearTexto(),
+          ],
+        ),
       ),
     );
   }
 
   Widget _crearImagen() {
-    return Image(
-      image: NetworkImage(
-          'https://www.exceltoursxalapa.com/blog/wp-content/uploads/2018/11/xcaret.jpg'),
+    return Container(
+      width: double.infinity,
+      child: Image(
+        image: NetworkImage(
+            'https://www.exceltoursxalapa.com/blog/wp-content/uploads/2018/11/xcaret.jpg'),
+        height: 210.0,
+        fit: BoxFit.cover,
+      ),
     );
   }
 
   Widget _crearTitulo() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Río Subterráneo', style: estiloTitulo),
-                SizedBox(
-                  height: 7.0,
-                ),
-                Text(
-                  'Río Subterráneo en México',
-                  style: estiloSubtitulo,
-                ),
-              ],
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Río Subterráneo', style: estiloTitulo),
+                  SizedBox(
+                    height: 7.0,
+                  ),
+                  Text(
+                    'Río Subterráneo en México',
+                    style: estiloSubtitulo,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Icon(Icons.star, color: Colors.red.shade900, size: 30.0),
-          Text('41', style: TextStyle(fontSize: 20.0))
-        ],
+            Icon(Icons.star, color: Colors.red.shade900, size: 30.0),
+            Text('41', style: TextStyle(fontSize: 20.0))
+          ],
+        ),
       ),
     );
   }
@@ -83,11 +95,13 @@ class BasicoPage extends StatelessWidget {
   }
 
   Widget _crearTexto() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-      child: Text(
-        'Quis Lorem cillum ut ad esse laborum officia ullamco. Consequat velit est dolore id exercitation laborum laboris nostrud deserunt enim sint nostrud. Minim officia deserunt cillum aute. Occaecat qui sunt ullamco proident commodo aliqua magna excepteur. Et ex reprehenderit duis occaecat nostrud deserunt eiusmod esse. Sunt adipisicing consectetur et amet laborum. Cillum minim eiusmod qui non proident commodo aliquip cillum aliqua ut anim.',
-        textAlign: TextAlign.justify,
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 40.0),
+        child: Text(
+          'Quis Lorem cillum ut ad esse laborum officia ullamco. Consequat velit est dolore id exercitation laborum laboris nostrud deserunt enim sint nostrud. Minim officia deserunt cillum aute. Occaecat qui sunt ullamco proident commodo aliqua magna excepteur. Et ex reprehenderit duis occaecat nostrud deserunt eiusmod esse. Sunt adipisicing consectetur et amet laborum.',
+          textAlign: TextAlign.justify,
+        ),
       ),
     );
   }
