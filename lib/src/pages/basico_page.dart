@@ -11,35 +11,83 @@ class BasicoPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Image(
-            image: NetworkImage(
-                'https://www.exceltoursxalapa.com/blog/wp-content/uploads/2018/11/xcaret.jpg'),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-            child: Row(
+          _crearImagen(),
+          _crearTitulo(),
+          _crearAcciones(),
+          _crearTexto(),
+        ],
+      ),
+    );
+  }
+
+  Widget _crearImagen() {
+    return Image(
+      image: NetworkImage(
+          'https://www.exceltoursxalapa.com/blog/wp-content/uploads/2018/11/xcaret.jpg'),
+    );
+  }
+
+  Widget _crearTitulo() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Río Subterráneo', style: estiloTitulo),
-                      SizedBox(
-                        height: 7.0,
-                      ),
-                      Text(
-                        'Río Subterráneo en México',
-                        style: estiloSubtitulo,
-                      ),
-                    ],
-                  ),
+                Text('Río Subterráneo', style: estiloTitulo),
+                SizedBox(
+                  height: 7.0,
                 ),
-                Icon(Icons.star, color: Colors.red, size: 30.0),
-                Text('41', style: TextStyle(fontSize: 20.0))
+                Text(
+                  'Río Subterráneo en México',
+                  style: estiloSubtitulo,
+                ),
               ],
             ),
-          )
+          ),
+          Icon(Icons.star, color: Colors.red.shade900, size: 30.0),
+          Text('41', style: TextStyle(fontSize: 20.0))
         ],
+      ),
+    );
+  }
+
+  Widget _crearAcciones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        _accion(Icons.call, 'CALL'),
+        _accion(Icons.near_me, 'ROUTE'),
+        _accion(Icons.share, 'SHARE'),
+      ],
+    );
+  }
+
+  Widget _accion(IconData icon, String texto) {
+    return Column(
+      children: <Widget>[
+        Icon(
+          icon,
+          color: Colors.green.shade700,
+          size: 35.0,
+        ),
+        SizedBox(height: 5.0),
+        Text(
+          texto,
+          style: TextStyle(fontSize: 15.0, color: Colors.green),
+        )
+      ],
+    );
+  }
+
+  Widget _crearTexto() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+      child: Text(
+        'Quis Lorem cillum ut ad esse laborum officia ullamco. Consequat velit est dolore id exercitation laborum laboris nostrud deserunt enim sint nostrud. Minim officia deserunt cillum aute. Occaecat qui sunt ullamco proident commodo aliqua magna excepteur. Et ex reprehenderit duis occaecat nostrud deserunt eiusmod esse. Sunt adipisicing consectetur et amet laborum. Cillum minim eiusmod qui non proident commodo aliquip cillum aliqua ut anim.',
+        textAlign: TextAlign.justify,
       ),
     );
   }
